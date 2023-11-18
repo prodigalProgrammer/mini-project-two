@@ -1,0 +1,155 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --purp: #e867ed;
+  --smoke: #e0eae5;
+  --dark: #333940;
+}
+::selection {
+  background-color: aqua;
+  color: var(--dark);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  line-height: 1;
+  font-family: sans-serif;
+  background-color: var(--dark);
+  padding: 20px;
+}
+
+​h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+
+​input,
+select,
+option,
+optgroup,
+textarea,
+button,
+pre,
+code {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+​ol,
+ul {
+  list-style: none;
+}
+
+header,
+footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+header > p {
+  color: var(--smoke);
+  width: 100%;
+  margin: 20px 0 30px;
+}
+.page-title {
+  font-size: 40px;
+  color: var(--purp);
+}
+
+p {
+  color: var(--purp);
+  font-size: 15px;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1em;
+}
+.code-card {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  justify-content: center;
+  border: var(--smoke) dashed 1px;
+  padding: 10px;
+  margin-bottom: 1em;
+  transition: box-shadow 500ms;
+}
+.code-card:hover,
+.code-card:hover .card-header {
+  box-shadow: 0px 1px 10px 2px var(--purp), inset 0px 0 5px var(--purp);
+}
+.card-header {
+  border: solid 1px var(--smoke);
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: -30px;
+  font-size: 30px;
+  color: var(--purp);
+  background-color: var(--dark);
+  transition: box-shadow 500ms;
+}
+.card-body {
+  margin: 1em 0 0.5em;
+}
+.code-card pre {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  white-space: pre-wrap;
+  color: var(--smoke);
+  user-select: all;
+  line-height: 1.5;
+  font-family: monospace;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 1em;
+  background: linear-gradient(#6c4775, var(--purp));
+}
+footer h3 {
+  font-size: 24px;
+  color: var(--purp);
+}
+
+@media screen and (min-width: 600px) {
+  .row {
+    gap: 1.5em;
+    margin-top: 1.5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, minmax(min-content, max-content));
+  }
+  .card-column {
+    display: flex;
+  }
+  .code-card {
+    justify-content: space-between;
+  }
+  header > p {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .row {
+    margin: 1.5em 2em 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  header > p {
+    width: 62.5%;
+  }
+}
